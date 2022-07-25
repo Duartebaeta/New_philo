@@ -19,7 +19,7 @@ SRCS = ft_strlen.c ft_atoi.c ft_strjoin.c \
 	   	ft_lstclear.c ft_lstiter.c ft_lstmap.c \
 		ft_chbase.c ft_printf_c.c ft_printf_di.c ft_printf_p.c \
 		ft_printf_s.c ft_printf_u.c ft_printf_x.c ft_printf.c \
-		get_next_line.c get_next_line_utils.c
+		get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 RM = rm -f

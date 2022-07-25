@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 15:42:39 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/25 15:55:04 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/07/25 18:02:03 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_rules
 	int	n_meals;
 	int	is_dead;
 	int	simulation_start;
-	t_philo	*philos;
+	struct s_philo	*philos;
 	pthread_t	*threads;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	death_lock;
@@ -49,5 +49,24 @@ typedef struct s_philo
 	pthread_t	thread_id;
 } t_philo;
 
+// util functions
+int		arg_checker(int argc, char **argv);
+long	get_time_until_death(t_rules *rules, t_philo *philo);
+long	get_time_since_last(t_philo *philo, t_rules *rules);
+long	get_time();
+long	get_simu_time(t_rules *rules);
 
+//init struct params
+int		init_all(char **argv, t_rules *rules);
+int		init_philo(t_rules *rules);
+int		init_mut(t_rules *rules);
+int		init_aloc(t_rules *rules);
+
+//simulation
+int	simulator(t_rules *rules);
+void	*start_simulation(void *rules);
+
+//threads
+int	join_threads(t_rules *rules);
+int	init_threads(t_rules *rules);
 #endif

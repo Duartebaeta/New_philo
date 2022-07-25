@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 16:53:29 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/03/09 19:09:16 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:27:29 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ char	*ft_substr_gnl(char const *s, size_t start, size_t end);
 size_t	ft_strlen_gnl(const char *s);
 char	*ft_strdup_gnl(char const *s);
 char	*ft_strjoin_gnl(char const *s1, char const *s2);
-char	*get_next_line(int fd);
 char	*check_return(char **s, int bytes);
 
 #endif

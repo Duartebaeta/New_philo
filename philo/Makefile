@@ -1,7 +1,7 @@
 NAME := philo
 #Compiling
 CC				:= gcc
-CFLAGS			:= -Wall -Wextra -Werror -g
+CFLAGS			:= -Wall -Wextra -Werror -g -pthread
 #Paths
 PATH_BUILD		:= ./build
 PATH_SRC		:= ./srcs
@@ -11,11 +11,8 @@ PATH_INCLUDES	:= ./includes
 #Getting all the .c files and turning them into .o files
 BIN				:= ./$(NAME)
 SRCS			:= $(PATH_SRC)/main.c \
-					$(PATH_SRC)/utils.c \
-					$(PATH_SRC)/simulation.c \
-					$(PATH_SRC)/take_release_forks.c \
-					$(PATH_SRC)/life-actions.c \
-					$(PATH_SRC)/send_to_die.c
+					$(PATH_SRC)/init_struct.c \
+					$(PATH_SRC)/simulation.c
 
 OBJ				:= $(subst .c,.o,$(subst $(PATH_SRC), $(PATH_OBJS), $(SRCS)))
 LIBFT			:= $(PATH_LIBFT)/libft.a
