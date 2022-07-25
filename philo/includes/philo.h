@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 15:42:39 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/25 18:02:03 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:14:15 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_rules
 	int	time_sleep;
 	int	n_meals;
 	int	is_dead;
-	int	simulation_start;
+	long	simulation_start;
 	struct s_philo	*philos;
 	pthread_t	*threads;
 	pthread_mutex_t	*forks;
@@ -55,6 +55,9 @@ long	get_time_until_death(t_rules *rules, t_philo *philo);
 long	get_time_since_last(t_philo *philo, t_rules *rules);
 long	get_time();
 long	get_simu_time(t_rules *rules);
+int	print_status(t_rules *rules, t_philo *philo, char *message);
+int	check_print(t_rules *rules);
+int	enough_meals(t_rules *rules);
 
 //init struct params
 int		init_all(char **argv, t_rules *rules);
@@ -69,4 +72,13 @@ void	*start_simulation(void *rules);
 //threads
 int	join_threads(t_rules *rules);
 int	init_threads(t_rules *rules);
+
+//taking and releasing forks
+int	start_taking_forks(t_rules *rules, t_philo *philo);
+int	check_fork(t_rules *rules, t_philo *philo);
+int	take_first_fork(t_rules *rules, t_philo *philo);
+int	take_second_fork(t_rules *rules, t_philo *philo);
+int	release_fork_singular(t_rules *rules, int fork_id);
+int	release_forks(t_rules *rules, t_philo *philo);
+
 #endif

@@ -12,7 +12,10 @@ PATH_INCLUDES	:= ./includes
 BIN				:= ./$(NAME)
 SRCS			:= $(PATH_SRC)/main.c \
 					$(PATH_SRC)/init_struct.c \
-					$(PATH_SRC)/simulation.c
+					$(PATH_SRC)/simulation.c \
+					$(PATH_SRC)/forks.c \
+					$(PATH_SRC)/utils.c \
+					$(PATH_SRC)/printing.c
 
 OBJ				:= $(subst .c,.o,$(subst $(PATH_SRC), $(PATH_OBJS), $(SRCS)))
 LIBFT			:= $(PATH_LIBFT)/libft.a
