@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jul 25 19:03:01 2022
+# Make data base, printed on Mon Jul 25 23:21:45 2022
 
 # Variables
 
@@ -53,7 +53,7 @@ XDG_DATA_DIRS = /app/share:/usr/share:/usr/share/runtime/share:/run/host/user-sh
 # environment
 VSCODE_CODE_CACHE_PATH = /Users/dhomem-d/.var/app/com.visualstudio.code/config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session7
 # environment
 LANG = C
 # environment
@@ -99,7 +99,7 @@ FLATPAK_SANDBOX_DIR = /Users/dhomem-d/.var/app/com.visualstudio.code/sandbox
 # environment
 VSCODE_PID = 23
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_10473_3eSO9i
+KRB5CCNAME = FILE:/tmp/krb5cc_10473_fZ7WfH
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -111,7 +111,7 @@ XDG_DATA_HOME = /Users/dhomem-d/.var/app/com.visualstudio.code/data
 # environment
 SANDBOX_LD_PRELOAD = /app/bin/../lib/libzypak-preload-host.so:/app/bin/../lib/libzypak-preload-host-spawn-strategy.so
 # environment
-SESSION_MANAGER = local/c2r8s1.42lisboa.com:@/tmp/.ICE-unix/2943,unix/c2r8s1.42lisboa.com:/tmp/.ICE-unix/2943
+SESSION_MANAGER = local/c2r9s4.42lisboa.com:@/tmp/.ICE-unix/247885,unix/c2r9s4.42lisboa.com:/tmp/.ICE-unix/247885
 # automatic
 *F = $(notdir $*)
 # environment
@@ -157,7 +157,7 @@ DBUS_SYSTEM_BUS_ADDRESS = unix:path=/run/dbus/system_bus_socket
 # environment
 XDG_CONFIG_HOME = /Users/dhomem-d/.var/app/com.visualstudio.code/config
 # environment
-INVOCATION_ID = aacfe539919040e1a29768bc5e982ef4
+INVOCATION_ID = fbc454b307e54f0f9c6b3d3a76aef62c
 # environment
 DOCKER_HOST = unix:///run/user/10473/docker.sock
 # automatic
@@ -195,11 +195,11 @@ DISPLAY = :99.0
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2399
+MANAGERPID = 247332
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 9338
+GIO_LAUNCHED_DESKTOP_FILE_PID = 252628
 # environment
-SSH_AGENT_PID = 2891
+SSH_AGENT_PID = 247833
 # environment
 _ = /usr/bin/make
 # environment
@@ -209,7 +209,7 @@ GPG_AGENT_INFO = /run/user/10473/gnupg/S.gpg-agent:0:1
 # environment
 PULSE_CLIENTCONFIG = /run/flatpak/pulse/config
 # environment
-JOURNAL_STREAM = 9:58587
+JOURNAL_STREAM = 9:3308155
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -257,7 +257,7 @@ GDMSESSION = ubuntu
 
 # Directories
 
-# . (device 64768, inode 5640314): 5 files, no impossibilities.
+# . (device 64768, inode 2624978): 5 files, no impossibilities.
 
 # 5 files, no impossibilities in 1 directories.
 
@@ -273,7 +273,6 @@ Makefile:
 #  File does not exist.
 #  File has been updated.
 #  Failed to be updated.
- 
 
 # Not a target:
 .DEFAULT:
@@ -282,6 +281,7 @@ Makefile:
 #  File has not been updated.
 
 # Not a target:
+ 
 all:
 #  Command line target.
 #  Implicit rule search has been done.
@@ -316,6 +316,6 @@ GNUmakefile:
 # strcache performance: lookups = 15 / hit rate = 20%
 # hash-table stats:
 # Load=12/8192=0%, Rehash=0, Collisions=0/15=0%
-# Finished Make data base on Mon Jul 25 19:03:01 2022
+# Finished Make data base on Mon Jul 25 23:21:45 2022
 
  

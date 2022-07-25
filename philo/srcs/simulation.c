@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:30:36 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/25 19:24:03 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/07/25 23:47:00 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ void	*start_simulation(void *r)
 	{
 		if (start_taking_forks(rules, philo) == EXIT_FAILURE)
 			break ;
+		if (start_eating(rules, philo) == EXIT_FAILURE)
+			break ;
+		if (start_sleeping(rules, philo) == EXIT_FAILURE)
+			break;
+		if (start_thinking(rules, philo) == EXIT_FAILURE)
+			break;
 	}
 	return (EXIT_SUCCESS);
 }

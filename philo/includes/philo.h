@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 15:42:39 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/25 19:14:15 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/07/25 23:46:40 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,11 @@ int	take_first_fork(t_rules *rules, t_philo *philo);
 int	take_second_fork(t_rules *rules, t_philo *philo);
 int	release_fork_singular(t_rules *rules, int fork_id);
 int	release_forks(t_rules *rules, t_philo *philo);
+
+//life actions
+int	send_to_die(t_rules *rules, t_philo *philo);
+int	start_eating(t_rules *rules, t_philo *philo);
+int	start_sleeping(t_rules *rules, t_philo *philo);
+int	start_thinking(t_rules *rules, t_philo *philo);
 
 #endif

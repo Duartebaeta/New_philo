@@ -15,7 +15,9 @@ SRCS			:= $(PATH_SRC)/main.c \
 					$(PATH_SRC)/simulation.c \
 					$(PATH_SRC)/forks.c \
 					$(PATH_SRC)/utils.c \
-					$(PATH_SRC)/printing.c
+					$(PATH_SRC)/printing.c \
+					$(PATH_SRC)/life-actions.c \
+					$(PATH_SRC)/send_to_die.c
 
 OBJ				:= $(subst .c,.o,$(subst $(PATH_SRC), $(PATH_OBJS), $(SRCS)))
 LIBFT			:= $(PATH_LIBFT)/libft.a

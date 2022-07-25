@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:56:45 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/25 19:21:08 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/07/25 23:49:46 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	start_taking_forks(t_rules *rules, t_philo *philo)
 int	check_fork(t_rules *rules, t_philo *philo)
 {
 	if (rules->n_philo == 1 || get_time_since_last(philo, rules) > rules->time_die)
+	{
+		send_to_die(rules, philo);
 		return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -40,7 +43,7 @@ int	take_first_fork(t_rules *rules, t_philo *philo)
 
 int	take_second_fork(t_rules *rules, t_philo *philo)
 {
-	if (pthread_mutex_lock(&rules->forks[philo->left_fork_id]) == EXIT_FAILURE)
+	if (pthread_mutex_lock(&rules->forks[philo->right_fork_id]) == EXIT_FAILURE)
 	{
 		release_fork_singular(rules, philo->left_fork_id);
 		return (EXIT_FAILURE);
