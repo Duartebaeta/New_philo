@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:19:17 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/25 17:22:38 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/07/26 00:26:03 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	init_all(char **argv, t_rules *rules)
 		rules->n_meals = ft_atoi(argv[5]);
 	else
 		rules->n_meals = -1;
-	if (rules->n_philo < 2 || rules->time_die < 0 || rules->time_eat < 0 || rules->time_sleep < 0)
+	if (rules->n_philo < 1 || rules->time_die < 0 || rules->time_eat < 0 || rules->time_sleep < 0)
 		return (1);
 	if (init_aloc(rules))
 		return (3);

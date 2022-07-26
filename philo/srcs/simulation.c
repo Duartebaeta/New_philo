@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:30:36 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/25 23:47:00 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/07/26 00:56:27 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*start_simulation(void *r)
 	pthread_mutex_lock(&(rules->increment_lock));
 	philo = &rules->philos[counter++];
 	pthread_mutex_unlock(&(rules->increment_lock));
-	while (1)
+	while (1 && rules->n_meals != 0)
 	{
 		if (start_taking_forks(rules, philo) == EXIT_FAILURE)
 			break ;

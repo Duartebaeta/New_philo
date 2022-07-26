@@ -58,6 +58,7 @@ long	get_simu_time(t_rules *rules);
 int	print_status(t_rules *rules, t_philo *philo, char *message);
 int	check_print(t_rules *rules);
 int	enough_meals(t_rules *rules);
+int	still_has_time(t_rules *rules, t_philo *philo);
 
 //init struct params
 int		init_all(char **argv, t_rules *rules);
