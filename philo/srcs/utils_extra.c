@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   send_to_die.c                                      :+:      :+:    :+:   */
+/*   utils_extra.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/25 22:50:27 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/09/05 19:30:58 by dhomem-d         ###   ########.fr       */
+/*   Created: 2022/09/05 19:34:26 by dhomem-d          #+#    #+#             */
+/*   Updated: 2022/09/05 19:36:21 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	send_to_die(t_rules *rules, t_philo *philo)
+int	still_has_time(t_rules *rules, t_philo *philo)
 {
-	long	time_left;
-
-	time_left = get_time_until_death(rules, philo) + get_simu_time(rules);
-	while (get_simu_time(rules) < time_left)
+	if (get_time_since_last(philo, rules) > rules->time_die)
 	{
-		continue ;
-	}
-	if (print_status(rules, philo, "is dead") == EXIT_FAILURE)
+		send_to_die(rules, philo);
 		return (EXIT_FAILURE);
-	pthread_mutex_lock(&rules->death_lock);
-	rules->is_dead = 1;
-	pthread_mutex_unlock(&rules->death_lock);
+	}
+	return (EXIT_SUCCESS);
+}
+
+int	check_for_deaths(t_rules *rules, t_philo *philo)
+{
+	if (rules->is_dead != 0)
+		return (EXIT_FAILURE);
+	if (get_time_since_last(philo, rules) > rules->time_die)
+	{
+		send_to_die(rules, philo);
+		return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }

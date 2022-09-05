@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:30:36 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/26 00:56:27 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/09/05 19:33:49 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*start_simulation(void *r)
 {
-	t_rules *rules;
-	t_philo	*philo;
+	t_rules		*rules;
+	t_philo		*philo;
 	static int	counter = 0;
 
 	rules = (t_rules *) r;
@@ -29,9 +29,9 @@ void	*start_simulation(void *r)
 		if (start_eating(rules, philo) == EXIT_FAILURE)
 			break ;
 		if (start_sleeping(rules, philo) == EXIT_FAILURE)
-			break;
+			break ;
 		if (start_thinking(rules, philo) == EXIT_FAILURE)
-			break;
+			break ;
 	}
 	return (EXIT_SUCCESS);
 }
@@ -43,7 +43,8 @@ int	init_threads(t_rules *rules)
 	i = 0;
 	while (i < rules->n_philo)
 	{
-		pthread_create(&(rules->threads[i]), NULL, start_simulation, (void *)rules);
+		pthread_create(&(rules->threads[i]), NULL,
+			start_simulation, (void *)rules);
 		i++;
 	}
 	return (EXIT_SUCCESS);

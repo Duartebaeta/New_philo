@@ -6,13 +6,13 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 15:55:16 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/26 00:25:47 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/09/05 19:28:43 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_rules	*rules;
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	if (init_all(argv, rules))
 		return (4);
 	simulator(rules);
-	return 0;
+	return (0);
 }
 
 int	arg_checker(int argc, char **argv)
@@ -47,7 +47,8 @@ int	arg_checker(int argc, char **argv)
 		}
 		counter++;
 	}
-	if (ft_atoi(argv[1]) < 1 || ft_atoi(argv[2]) < 0 || ft_atoi(argv[3]) < 0 || ft_atoi(argv[4]) < 0)
+	if (ft_atoi(argv[1]) < 1 || ft_atoi(argv[2]) < 0
+		|| ft_atoi(argv[3]) < 0 || ft_atoi(argv[4]) < 0)
 		return (3);
 	return (0);
 }

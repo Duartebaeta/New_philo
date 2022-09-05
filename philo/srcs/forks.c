@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 17:56:45 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/07/26 02:20:27 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/09/05 19:17:00 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,24 @@ int	check_fork(t_rules *rules, t_philo *philo)
 
 int	take_first_fork(t_rules *rules, t_philo *philo)
 {
-	pthread_mutex_lock(&rules->forks[philo->left_fork_id]);
-	if (still_has_time(rules, philo) == EXIT_FAILURE)
+	if (rules->forks_bool[philo->right_fork_id] == 1
+		|| rules->forks_bool[philo->left_fork_id] == 1)
 	{
-		release_fork_singular(rules, philo->left_fork_id);
-		return (EXIT_FAILURE);
+		if (get_time_since_last(philo, rules) + rules->time_eat
+			> rules->time_die)
+		{
+			send_to_die(rules, philo);
+			return (EXIT_FAILURE);
+		}
+		while (rules->forks_bool[philo->right_fork_id] == 1
+			|| rules->forks_bool[philo->left_fork_id] == 1)
+		{
+			if (check_for_deaths(rules, philo) == EXIT_FAILURE)
+				return (EXIT_FAILURE);
+		}
 	}
+	pthread_mutex_lock(&rules->forks[philo->left_fork_id]);
+	rules->forks_bool[philo->left_fork_id] = 1;
 	if (print_status(rules, philo, "has taken a fork") == EXIT_FAILURE)
 	{
 		release_fork_singular(rules, philo->left_fork_id);
@@ -57,36 +69,26 @@ int	take_first_fork(t_rules *rules, t_philo *philo)
 
 int	take_second_fork(t_rules *rules, t_philo *philo)
 {
-	if (pthread_mutex_lock(&rules->forks[philo->right_fork_id]) == EXIT_FAILURE)
+	if (rules->forks_bool[philo->right_fork_id] == 1)
 	{
-		release_fork_singular(rules, philo->left_fork_id);
-		return (EXIT_FAILURE);
+		if (get_time_since_last(philo, rules) + rules->time_eat
+			> rules->time_die)
+		{
+			send_to_die(rules, philo);
+			return (EXIT_FAILURE);
+		}
+		while (rules->forks_bool[philo->right_fork_id] == 1)
+		{
+			if (check_for_deaths(rules, philo) == EXIT_FAILURE)
+				return (EXIT_FAILURE);
+		}
 	}
-	if (still_has_time(rules, philo) == EXIT_FAILURE)
-	{
-		release_forks(rules, philo);
-		return (EXIT_FAILURE);
-	}
+	pthread_mutex_lock(&rules->forks[philo->right_fork_id]);
+	rules->forks_bool[philo->right_fork_id] = 1;
 	if (print_status(rules, philo, "has taken a fork") == EXIT_FAILURE)
 	{
 		release_forks(rules, philo);
 		return (EXIT_FAILURE);
 	}
-	return (EXIT_SUCCESS);
-}
-
-int	release_fork_singular(t_rules *rules, int fork_id)
-{
-	if (pthread_mutex_unlock(&rules->forks[fork_id]) != EXIT_SUCCESS)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
-}
-
-int	release_forks(t_rules *rules, t_philo *philo)
-{
-	if (release_fork_singular(rules, philo->left_fork_id) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-	if (release_fork_singular(rules, philo->right_fork_id) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
