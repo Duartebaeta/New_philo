@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 22:45:55 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/09/05 19:25:58 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 17:09:19 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ int	start_sleeping(t_rules *rules, t_philo *philo)
 		return (EXIT_FAILURE);
 	if (get_time_until_death(rules, philo) < rules->time_sleep)
 	{
-		printf("\n%li\n%i\n", get_time_until_death(rules, philo),
-			rules->time_sleep);
 		send_to_die(rules, philo);
 		return (EXIT_FAILURE);
 	}
@@ -85,7 +83,7 @@ int	start_sleeping(t_rules *rules, t_philo *philo)
 
 int	start_thinking(t_rules *rules, t_philo *philo)
 {
-	if (get_time_since_last(philo, rules) >= rules->time_die)
+	if (get_time_since_last(philo, rules) > rules->time_die)
 	{
 		send_to_die(rules, philo);
 		return (EXIT_FAILURE);

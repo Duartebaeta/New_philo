@@ -1,6 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory '/Users/dhomem-d/Desktop/New_philo'
-make: Leaving directory '/Users/dhomem-d/Desktop/New_philo'
- 
-make: *** No targets specified and no makefile found.  Stop.
-

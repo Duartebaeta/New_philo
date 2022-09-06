@@ -6,7 +6,7 @@
 /*   By: dhomem-d <dhomem-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:09:41 by dhomem-d          #+#    #+#             */
-/*   Updated: 2022/09/05 19:28:58 by dhomem-d         ###   ########.fr       */
+/*   Updated: 2022/09/06 17:05:52 by dhomem-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	enough_meals(t_rules *rules)
 	i = 0;
 	while (i < rules->n_philo)
 	{
-		if (rules->philos[i++].meals_had != rules->n_meals)
+		if (rules->philos[i++].meals_had < rules->n_meals
+			|| rules->n_meals == -1)
 			return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
